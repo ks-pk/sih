@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicReport OTP Verification</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .otp-code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1f2937;
+            text-align: center;
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            letter-spacing: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 30px 0;
+            border: 2px dashed #d1d5db;
+        }
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #fef3cd;
+            border: 1px solid #fbbf24;
+            padding: 15px;
+            border-radius: 8px;
+            color: #92400e;
+            margin: 20px 0;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .feature {
+            flex: 1;
+            padding: 0 10px;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .otp-code {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+            .features {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">CR</div>
+            <h1 style="color: #1f2937; margin: 0; font-size: 28px;">CivicReport</h1>
+            <p style="color: #6b7280; margin: 10px 0 0 0;">Building Better Communities Together</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="card">
+            <h2 style="color: #1f2937; margin-top: 0;">Hello {{to_name}},</h2>
+            
+            <p style="color: #4b5563; font-size: 16px;">
+                Thank you for using CivicReport! Your verification code is ready.
+            </p>
+
+            <div class="otp-code">{{otp_code}}</div>
+
+            <p style="color: #4b5563; text-align: center; margin: 20px 0;">
+                <strong>This code will expire in {{expiry_minutes}} minutes</strong>
+            </p>
+
+            <div class="warning">
+                <strong>🔒 Security Notice:</strong> This code is for your account verification. 
+                Never share it with anyone. CivicReport will never ask for your OTP via phone or email.
+            </div>
+
+            <!-- Features Section -->
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📝</div>
+                    <div style="font-weight: 600; color: #1f2937;">Report Issues</div>
+                    <div style="font-size: 12px; color: #6b7280;">Photos & Location</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <div style="font-weight: 600; color: #1f2937;">Track Progress</div>
+                    <div style="font-size: 12px; color: #6b7280;">Real-time Updates</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <div style="font-weight: 600; color: #1f2937;">Earn Rewards</div>
+                    <div style="font-size: 12px; color: #6b7280;">Points & Badges</div>
+                </div>
+            </div>
+
+            <p style="color: #4b5563; font-size: 14px; margin-bottom: 0;">
+                If you didn't request this verification code, please ignore this email or 
+                <a href="mailto:support@civicreport.app" style="color: #3b82f6;">contact our support team</a>.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin: 0;">
+                Best regards,<br>
+                <strong>{{from_name}}</strong><br>
+                The CivicReport Team
+            </p>
+            <p style="margin: 20px 0 0 0; font-size: 12px;">
+                Sent on {{current_time}} • This is an automated message
+            </p>
+            <div style="margin-top: 20px;">
+                <a href="#" style="color: #6b7280; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="color: #6b7280; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+                <a href="mailto:{{support_email}}" style="color: #6b7280; text-decoration: none; margin: 0 10px;">Support</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 
+EmailJS Template Variables to include:
+- {{to_email}} - Recipient's email address
+- {{to_name}} - Recipient's name
+- {{otp_code}} - The 6-digit verification code
+- {{app_name}} - Application name (CivicReport)
+- {{expiry_minutes}} - Expiry time in minutes (5)
+- {{from_name}} - Sender name (CivicReport Team)
+- {{current_time}} - Current timestamp
+- {{support_email}} - Support email address
+-->
